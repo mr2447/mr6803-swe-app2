@@ -9,8 +9,15 @@ python:
 install:
   - pip install -r requirements.txt
 
+before_script:
+  - black --check .  # Validate formatting
+  - flake8  # Lint code
+
 script:
-  - pytest
+  - coverage run --source=. -m unittest discover  # Run tests
+
+after_success:
+  - coveralls  # Send test coverage report to Coveralls
 
 deploy:
   provider: elasticbeanstalk
@@ -18,3 +25,5 @@ deploy:
   app: "personal-app"
   env: "django-env"
   bucket_name: "elasticbeanstalk-us-east-1-982534388341"
+  on:
+  branch: main  # Deploy only from the main branch
