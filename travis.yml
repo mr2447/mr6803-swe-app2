@@ -11,3 +11,10 @@ install:
 
 script:
   - pytest
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "personal-app"
+  env: "django-env"
+  bucket_name: "elasticbeanstalk-us-east-1-982534388341"
