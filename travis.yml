@@ -13,7 +13,7 @@ install:
 script:
   - black --check .  # Validate formatting
   - flake8  # Lint code
-  - coverage run --source=. -m unittest discover  # Run tests
+  - coverage run manage.py test  # Run tests
 
 after_success:
   - coveralls  # Send test coverage report to Coveralls
