@@ -5,14 +5,14 @@ language: python
 python:
   - "3.10"
 
-  
+
 install:
   - pip install -r requirements.txt  # Install all dependencies from requirements.txt
 
 script:
   - black --check .  # Validate formatting
   - flake8  # Lint code
-  - coverage run manage.py test  # Run tests
+  - coverage run --source=polls manage.py test polls.testsuite
 
 after_success:
   - coveralls  # Send test coverage report to Coveralls
