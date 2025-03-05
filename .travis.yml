@@ -15,7 +15,7 @@ script:
   - coverage run --source=polls manage.py test polls.testsuite
 
 after_success:
-  - coveralls  # Send test coverage report to Coveralls
+  - COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN coveralls --verbose
 
 deploy:
   provider: elasticbeanstalk
