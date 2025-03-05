@@ -5,5 +5,5 @@ packaging==24.2
 sqlparse==0.5.3
 black
 flake8
-coverage
-coveralls
+coverage==6.5.0
+coveralls==3.3.1
